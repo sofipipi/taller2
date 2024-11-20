@@ -1,6 +1,8 @@
 #include <iostream>
 #include<string>
 #include<vector>
+#include <random>
+#include <sstream>
 #include "Tablero.h"
 using namespace std;
 
@@ -19,8 +21,16 @@ void menu(Tablero* tablero){
     cout<< "El juego que se realiza es GATO, TRES EN LINEA o TIPTOE"<<endl;
     cout<< " (1) Empezar  (2) Salir"<<endl;
     cin>>opcion;
+    random_device rd; 
+    mt19937 gen(rd()); 
+    uniform_int_distribution<> distrib(1, 2);
+    int numeroAleatorio = distrib(gen);
     if (opcion==1){
-        tablero->imprimirTablero();
+      
+        cout<<"Este es el tablero actual"<<endl;
+        cout<<tablero->imprimirTablero()<< endl;
+        cout<<"                    "<<endl;
+        cout<< "El jugador "<<numeroAleatorio<<" comienza"<<endl;
     }
 }
 
