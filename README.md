@@ -1,8 +1,11 @@
 # taller2 
+
+
 integrantes:
 
 Sofia Catalina Contreras Godoy Rut: 21.702.328-9 Correo institucional: sofia.contreras02@alumnos.ucn.cl
 Luis Felipe Juárez Torres Rut: 19.950.071-6 Correo institucional: luis.juarez@alumnos.ucn.cl
+Ambos PARALELO C1
 
 Para compilar: g++ -I./include source/Tablero.cpp source/IA.cpp source/main.cpp -o TableroGato
 Para Ejecutar: ./TableroGato
