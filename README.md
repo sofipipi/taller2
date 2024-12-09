@@ -2,7 +2,7 @@
 integrantes:
 
 Sofia Catalina Contreras Godoy Rut: 21.702.328-9 Correo institucional: sofia.contreras02@alumnos.ucn.cl
-Luis Felipe Juárez Torres Rut:19.950.071-6 Correo institucional: luis.juarez@alumnos.ucn.cl
+Luis Felipe Juárez Torres Rut: 19.950.071-6 Correo institucional: luis.juarez@alumnos.ucn.cl
 
 Para compilar: g++ -I./include source/Tablero.cpp source/IA.cpp source/main.cpp -o TableroGato
 Para Ejecutar: ./TableroGato
@@ -17,6 +17,32 @@ Instrucciones para jugar al gato en este programa:
    2 (2 0) (2 1) (2 2)
 - En el caso de que en la consola se escriba algo distinto arrojará movimiento inválido 
   hasta que haya uno válido.
+Diagrama del árbol de juego para un caso simple:
+
+Estado del tablero
+X | O |  
+---------
+  | X |  
+---------
+  |   |  
+Diagrama:
+Nivel 0 (Turno de la IA - O)
+                           Nodo inicial
+                          (Estado actual)
+                       /        |        |        \
+                  (0,2)      (1,0)    (2,1)    (2,2)
+                    |          |         |          |
+Nivel 1 (Turno del humano - X)
+              Evalúa:      Evalúa:   Podado     Podado
+              (1,0)        (0,2)  
+             /   \         /   \
+Nivel 2 (Turno de la IA - O)
+          Sigue evaluando si es relevante para el puntaje...
+
+
+
+
+
 
 Explicación sobre el algoritmo utilizado:
 -En este caso comenzamos con la construcción del árbol de juego, donde se genera un árbol en el cual cada nodo representa un estado del tablero, y cada rama es un posible movimiento. Al llegar a un estado terminal (victoria, empate o derrota), se asigna un puntaje, en mi caso la victoria para la IA son +10 puntos y la victoria para el humano son -10, un empate es igualado a 0. Y por último para que la ia elija su siguiente movimiento los valores de los nodos terminales se propagan hacia arriba para decidir la mejor jugada en cada nivel.
